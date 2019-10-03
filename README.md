@@ -10,6 +10,11 @@ Create an array of strings called `colors` that contain "orange", "red", "yellow
 
 Then, using array subscripting and string interpolation, print out the String `"orange, yellow, and lavender are some of my favorite colors"`.
 
+```swift
+var colors = ["orange", "red", "yellow", "turquoise", "lavendar"]
+print("\(colors[0]), \(colors[2]), and \(colors[4]) are my favorite colors")
+```
+
 
 ## Question 2
 
@@ -17,6 +22,11 @@ Remove "Illinois" and "Kansas" from the array below.
 
 `var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]`
 
+```swift
+var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]
+westernStates.removeSubrange(4...5)
+print(westernStates)
+```
 
 ## Question 3
 
@@ -24,6 +34,16 @@ Iterate through the array below. For each state, print out the name of the state
 
 `let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]`
 
+```swift
+let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]
+for state in moreStates {
+    if (state == "Hawaii" || state == "Alaska") {
+        print("\(state) is not apart of the continental United States", separator: ", ")
+    } else {
+        print("\(state) is apart of the continental United States", separator: ", ")
+    }
+}
+```
 
 ## Question 4
 
@@ -31,9 +51,21 @@ Print out how many non-whitespace characters are in `myString`:
 
 `let myString = "This is good practice with Strings!"`
 
+```swift
+var num = 0
+let myString = "This is good practice with Strings!"
+for char in myString {
+    if char != " " {
+        num+=1
+    }
+}
+print("There are", num,"white spaces in this string.")
+```
+
 Iterate through the array below. For each sentence, print out how many non-whitespace characters are in it.
 
 `let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]`
+
 
 
 ## Question 5
