@@ -59,14 +59,28 @@ for char in myString {
         num+=1
     }
 }
-print("There are", num,"white spaces in this string.")
+print("There are", num,"non-white spaces in this string.")
 ```
 
 Iterate through the array below. For each sentence, print out how many non-whitespace characters are in it.
 
 `let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]`
 
+```swift
+let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]
 
+var num1 = 0
+
+for stringElement in myFavoriteQuotes {
+    for char in stringElement {
+        if char != " " {
+            num1+=1
+        }
+    }
+}
+
+print("There are", num1,"non-white spaces in this array of string elements.")
+```
 
 ## Question 5
 
@@ -75,6 +89,23 @@ Iterate through `garden` and place any 🌷 that you find into the `basket`. Rep
 ```swift
 var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
 var basket = [String]()
+
+```
+
+My code:
+```swift
+var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
+var basket = [String]()
+
+for (index, stringElement) in garden.enumerated() {
+    if (stringElement == "🌷") {
+        basket.append(stringElement)
+        garden[index] = "dirt"
+    }
+}
+
+print("Flower count: \(basket.count) in \(basket)")
+print("Garden looks like: \(garden)")
 ```
 
 ## Question 6
@@ -87,6 +118,23 @@ The below array represents an unfinished batting lineup for a baseball team. **Y
 - Put "Reyes" to bat 8th instead.
 
 `var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]`
+
+```swift
+var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]
+battingLineup.append("Suzuki")
+for (index, stringElement) in battingLineup.enumerated() {
+    if stringElement == "Jeter" {
+        garden[index] = "Tejada"
+    } else if stringElement == "Thomas" {
+        garden[index] = "Guerro"
+    } else if stringElement == "Reyes" {
+        battingLineup.remove(at: index)
+        battingLineup.append("Reyes")
+    }
+}
+
+print(battingLineup)
+```
 
 
 ## Question 7
@@ -122,6 +170,21 @@ target = 3
 //false
 ```
 
+My code:
+```swift
+var numbers:[Int] = [4,2,6,73,32,4,2,1]
+let target:Int = 32
+var targetExists = false
+
+for number in numbers {
+    if number == target {
+        targetExists = true
+    }
+}
+
+print("Does the target: \(target) exist in the array: \(numbers)? Answer: \(targetExists)")
+```
+
 
 ## Question 8
 
@@ -131,6 +194,17 @@ Find the largest value in an array of Int.  Do not use the built-in `max()` meth
 let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int($0)}
 
 //This creates an array of 100 numbers in between 0 and 200.  For now, you don't need to worry about how it does that.
+```
+My code:
+```swift
+var largestNum = 0
+let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int($0)}
+for number in arrayOfNumbers {
+    if number > largestNum {
+        largestNum = number
+    }
+}
+print("The largest number is: \(largestNum)")
 ```
 
 
@@ -143,13 +217,32 @@ let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int
 
 //This creates an array of 100 numbers in between 0 and 200.  For now, you don't need to worry about how it does that.
 ```
-
+My code:
+```swift
+var smallestNum = 0
+let arrayOfNumbers1: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int($0)}
+for number in arrayOfNumbers {
+    if number < smallestNum {
+        smallestNum = number
+    }
+}
+print("The smallest number is: \(smallestNum)")
+```
 
 ## Question 10
 
 Iterate through `secondListOfNumbers`, and print out all the odd numbers.
 
 `var secondListOfNumbers = [19,13,14,19,101,10000,141,404]`
+
+My code:
+```swift
+var secondListOfNumbers = [19,13,14,19,101,10000,141,404]
+for number in secondListOfNumbers {
+    if number % 2 != 0 {
+        print("This number is a odd number: \(number) in array: \(secondListOfNumbers)")
+    }
+```
 
 
 ## Question 11
@@ -158,6 +251,16 @@ Iterate through `thirdListOfNumbers`, and print out the sum.
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
 
+My code:
+```swift
+var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]
+var currentSum = 0
+for number in thirdListOfNumbers {
+    currentSum += number
+}
+
+print("The current sum of the array \(thirdListOfNumbers) is \(currentSum)")
+```
 
 ## Question 12
 
@@ -165,6 +268,18 @@ Iterate through `thirdListOfNumbers`, and print out the sum of all the even numb
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
 
+My code:
+```swift
+var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]
+var currentSum = 0
+for number in thirdListOfNumbers {
+    if(number % 2 == 0) {
+        currentSum += number
+    }
+}
+
+print("The current sum of the array \(thirdListOfNumbers) is \(currentSum)")
+```
 
 ## Question 13
 
@@ -174,6 +289,24 @@ Append every Int that appears in both `listOne` and `listTwo` to the `sharedElem
 var listOne = [28, 64, 7, 96, 13, 32, 94, 11, 80, 68]
 var listTwo = [18, 94, 48, 6, 42, 68, 79, 76, 13, 7]
 var sharedElements = [Int]()
+```
+
+My code:
+```swift
+var listOne = [28, 64, 7, 96, 13, 32, 94, 11, 80, 68]
+var listTwo = [18, 94, 48, 6, 42, 68, 79, 76, 13, 7]
+var sharedElements = [Int]()
+
+for num in listOne {
+    for num2 in listTwo{
+        if num == num2 {
+            sharedElements.append(num2)
+        }
+    }
+}
+
+print("The number of shared elements in \(sharedElements) is \(sharedElements.count) elements across this array: \(listOne) and this array: \(listTwo)")
+
 ```
 
 # Part 2
